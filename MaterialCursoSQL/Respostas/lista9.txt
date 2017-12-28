@@ -1,0 +1,141 @@
+-- 1)Crie uma tabela de auditoria contendo os campos 
+-- editora_id, data e observação
+create table auditoria (editora_id int, data date, obs text);
+-- drop table auditoria;
+
+-- 2)Crie uma trigger para que toda vez que seja inserido um 
+-- novo registro na tabela editora seja gravado um registro 
+-- na tabela auditoria com a informação “Registro inserido”
+-- drop trigger auditoria;
+
+-- Criando a Trigger
+CREATE TRIGGER auditoria AFTER INSERT ON editora
+BEGIN
+   INSERT INTO auditoria(editora_id,data, obs) 
+   VALUES (new.id, datetime('now'), "Registro inserido" );
+END;
+-- drop trigger auditoria
+
+-- Inserindo para testar!
+insert into editora(id,nome) values (10,"Editora Brasil Brasileiro");
+
+-- Conferindo na auditoria
+select * from auditoria;
+
+
+-- 3)Crie uma trigger para que toda vez que seja excluído um 
+-- registro na tabela editora seja gravado um registro na tabela 
+-- auditoria com a informação “Registro excluído”
+drop trigger auditoria2;
+CREATE TRIGGER auditoria2 AFTER DELETE ON editora
+BEGIN
+   INSERT INTO auditoria(editora_id,data, obs) 
+   VALUES (old.id, datetime('now'), "Registro Excluído" );
+END;
+
+-- Excluindo para testar
+delete from editora where id = 999;
+
+-- Verificando
+select * from auditoria;
+select * from editora;
+
+
+
+
+-- 4)Faça um join na tabela de livros com autores mostrando o 
+-- título do livro e do autor.
+-- Tradicional INNER JOIN
+select l.titulo, a.nome
+from livro l, autor a
+where a.id = l.autor_id;
+
+-- Outra forma de INNER JOIN
+select titulo, nome
+from autor INNER JOIN livro
+ON autor.id = livro.autor_id;
+
+-- 5)Faça um join na tabela de livros com autores mostrando o título 
+-- do livro e do autor usando agora um LEFT OUTER JOIN para mostrar 
+-- inclusive os livros que não tenham autor definido.
+select  titulo, nome
+from livro LEFT OUTER JOIN autor
+ON autor.id = livro.estilo_id;
+
+-- 6)Escreva um bloco de transação que exclua o livro de código 1 e 
+-- insira um novo livro de código 50. Mas dê um rollback na transação.
+/*
+begin transaction;
+delete from livro where id = 1;
+insert into livro(id,titulo) values (50,"Teste");
+rollback;
+*/
+
+-- Verificando
+select * from livro;
+
+-- 7)Escreva um bloco de transação que exclua o livro de código 3 e insira 
+-- um novo livro de código 3. Feche a transação com Commit.
+/*
+begin transaction;
+delete from livro where id = 3;
+insert into livro(id,titulo) values (3,"SQL de A a Z");
+commit;
+*/
+
+-- Verificando
+select * from livro;
+
+/* 8)	Fazer um select no Banco e retornar os seguintes campos:
+•	Nome do autor em letras maiúsculas
+•	Nome da categoria em letras minúsculas
+•	As 10 primeiras letras do nome do livro
+•	Valor do Livro
+•	Valor do Livro com desconto de 7%
+Atenção: Trata-se de UM ÚNICO COMANDO SELECT para retornar todos os campos acima. */
+select 
+upper(a.nome), 
+lower(e.nome),
+substr(l.titulo,1,10),
+l.precovenda,
+l.precovenda * 0.93
+
+from livro l, autor a, estilo e
+where a.id = l.autor_id
+and e.id = l.estilo_id
+;
+
+-- 9)	Faça um select trazendo o nome do livro, código do estilo, código 
+-- do autor e código da editora. Caso algum campo desse esteja 
+-- NULL mostre a mensagem SEM CADASTRO.
+select titulo, 
+       ifnull(estilo_id,"SEM CADASTRO"),
+       ifnull(autor_id,"SEM CADASTRO"),
+       ifnull(editora_id,"SEM CADASTRO")
+       
+from livro;
+
+-- 10)Mostre o nome das 6 primeiras editoras em ordem 
+-- alfabética e em letras maiúsculas.
+select upper(nome )
+from editora
+order by nome
+limit 6;
+
+-- 11)Faça um select mostrando o nome do livro e o 
+-- tamanho em caracteres do nome
+select titulo, length(titulo)
+from livro;
+
+-- 12)Exiba a data atual
+select date('now');
+
+-- 13)Exiba a versão do SQLite
+select sqlite_version();
+
+-- 14)Exiba o nome das editoras substituindo a letra a por X
+select replace(nome,"a","X")
+from editora;
+
+-- 15)Grite bem alto “TERMINEI TODOS OS EXERCÍCIOS!!!!!!!” ;-)
+

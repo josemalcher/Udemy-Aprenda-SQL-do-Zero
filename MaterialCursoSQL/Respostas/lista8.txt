@@ -1,0 +1,86 @@
+-- 1)Faça um select somente de 10 editoras de GO
+select *
+from editora 
+where estado="GO"
+LIMIT 10
+;
+
+
+-- 2)Exiba o nome das editoras em ordem inversa e retorne as 3 primeiras
+select nome 
+from editora
+order by nome DESC
+limit 3
+;
+
+-- 3)Exiba todos os estados que temos editoras cadastradas
+select distinct estado
+from editora;
+
+-- 4)Crie uma view para o select que você fez no exercício 1 com o nome de GOIAS.
+create view GOIAS as
+select *
+from editora 
+where estado="GO";
+
+select * from goias;
+
+-- 5)Crie uma view para o select que você fez no exercício 3 com o nome de ESTADOS.
+create view ESTADOS as
+select distinct estado
+from editora;
+
+select *
+from estados;
+
+
+-- 6)Crie um índice para o estado na tabela Editora
+CREATE INDEX indice_estado ON editora ( 
+    estado 
+);
+
+
+-- 7)Crie um índice para o nome do autor.
+create index indice_autor on autor (nome);
+
+-- 8)Utilize subselect e exclua todos os livros da editora XPTO
+delete 
+from livro 
+where editora_id = (
+                        select id 
+                        from editora
+                        where nome="XPTO"
+                        
+                        );
+
+-- 9)Utilize subselect e exclua todos os livros do autor José Buscapé
+delete 
+from livro 
+where autor_id = (
+                        select id 
+                        from autor
+                        where nome="José Buscapé"
+                        
+                        );
+
+-- 10)Exclua a view GOIAS
+drop view goias;
+
+-- 11)Exclua o índice da tabela Editora
+drop index indice_estado;
+
+-- 12)Exclua a view Estados
+drop view estados;
+
+-- 13)Exiba em ordem alfabética as editoras e mostre as 7 primeiras (somente o nome).
+select nome
+from editora
+order by nome
+limit 7;
+
+-- 14)Exclua o índice da tabela autor
+drop index indice_autor;
+
+-- 15)Crie um índice para o nome do livro
+create index indice_titulo on livro (titulo);
+
