@@ -124,6 +124,22 @@ agenda  alunos
 sqlite>
 ```
 
+###15. Mudando o nome da tabela
+
+```
+sqlite> .tables
+agenda  alunos
+sqlite> alter table alunos rename to estudantes
+   ...> ;
+sqlite> .tables
+agenda      estudantes
+sqlite> alter table agenda rename to cadernos
+   ...> ;
+sqlite> .tables
+cadernos    estudantes
+sqlite>
+```
+
 
 [Voltar ao Índice](#indice)
 
