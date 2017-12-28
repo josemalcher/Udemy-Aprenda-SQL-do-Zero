@@ -104,6 +104,26 @@ Jose|988889900
 Beta|111111111
 sqlite>
 ```
+### 12. Entendendo os tipos de dados
+
+https://www.devmedia.com.br/tipos-de-dados-no-postgresql-e-sql-server/23362
+
+### 14. Excluindo uma tabela
+
+```
+sqlite> .exit
+C:\Users\josemalcher\Documents\09-Workspaces\workspace-Udemy-SQL-aprenda-sql-do-zero\03-CriandoTabelaseInserindoInformacoes (master)
+λ sqlite3.exe aula01.sqlite
+SQLite version 3.21.0 2017-10-24 18:55:49
+Enter ".help" for usage hints.
+sqlite> .tables
+agenda    alunos    produtos
+sqlite> drop table produtos;
+sqlite> .tables
+agenda  alunos
+sqlite>
+```
+
 
 [Voltar ao Índice](#indice)
 
