@@ -30,11 +30,53 @@ https://www.udemy.com/aprenda-sql-do-zero
 
 ## <a name="parte2">Esquentando os motores</a>
 
+https://www.sqlite.org/index.html
+
+https://sqlitestudio.pl/index.rvt
+
 [Voltar ao Índice](#indice)
 
 ---
 
 ## <a name="parte3">Criando tabelas e inserindo informações</a>
+
+```
+λ sqlite3.exe aula01.sqlite
+SQLite version 3.21.0 2017-10-24 18:55:49
+Enter ".help" for usage hints.
+sqlite> create table agenda(nome text, telefone text);
+sqlite> .tables
+agenda
+sqlite> create table alunos(matricula integer, nome text, telefone text, cidade text);
+
+sqlite> .tables
+agenda  alunos
+sqlite> create table produtos (codigo integer, nome text, qtd integer);
+sqlite> .tables
+agenda    alunos    produtos
+sqlite> .exit
+```
+
+### DDL - Linguagem de Definição de Dados
+
+O segundo grupo é a DDL (Data Definition Language - Linguagem de Definição de Dados). Uma DDL permite ao utilizador definir tabelas novas e elementos associados. A maioria dos bancos de dados de SQL comerciais tem extensões proprietárias no DDL.
+
+Os comandos básicos da DDL são poucos:
+
+- CREATE: cria um objeto (uma Tabela, por exemplo) dentro da base de dados.  
+- DROP: apaga um objeto do banco de dados.  
+
+Alguns sistemas de banco de dados usam o comando ALTER, que permite ao usuário alterar um objeto, por exemplo, adicionando uma coluna a uma tabela existente.
+
+Outros comandos DDL:
+
+- CREATE TABLE  
+- CREATE INDEX  
+- CREATE VIEW  
+- ALTER TABLE  
+- ALTER INDEX  
+- DROP INDEX  
+- DROP VIEW  
 
 [Voltar ao Índice](#indice)
 
