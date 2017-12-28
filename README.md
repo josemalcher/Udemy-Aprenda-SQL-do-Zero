@@ -124,20 +124,36 @@ agenda  alunos
 sqlite>
 ```
 
-###15. Mudando o nome da tabela
+### 15. Mudando o nome da tabela
 
 ```
 sqlite> .tables
 agenda  alunos
-sqlite> alter table alunos rename to estudantes
-   ...> ;
+
+sqlite> alter table alunos rename to estudantes;
 sqlite> .tables
 agenda      estudantes
-sqlite> alter table agenda rename to cadernos
-   ...> ;
+
+sqlite> alter table agenda rename to cadernos;
 sqlite> .tables
 cadernos    estudantes
-sqlite>
+```
+
+### 16. Vamos adicionar um campo na tabela
+```
+sqlite> .tables
+estudantes
+
+sqlite> .schema
+CREATE TABLE IF NOT EXISTS "estudantes"(matricula integer, nome text, telefone text, cidade text);
+
+sqlite> alter table estudantes add estado text;
+sqlite> .schema
+CREATE TABLE IF NOT EXISTS "estudantes"(matricula integer, nome text, telefone text, cidade text, estado text);
+
+sqlite> alter table estudantes add condigo integer;
+sqlite> .schema
+CREATE TABLE IF NOT EXISTS "estudantes"(matricula integer, nome text, telefone text, cidade text, estado text, condigo integer);
 ```
 
 
