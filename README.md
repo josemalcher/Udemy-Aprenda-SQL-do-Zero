@@ -40,6 +40,8 @@ https://sqlitestudio.pl/index.rvt
 
 ## <a name="parte3">Criando tabelas e inserindo informações</a>
 
+### 10. Criando uma tabela
+
 ```
 λ sqlite3.exe aula01.sqlite
 SQLite version 3.21.0 2017-10-24 18:55:49
@@ -56,8 +58,7 @@ sqlite> .tables
 agenda    alunos    produtos
 sqlite> .exit
 ```
-
-### DDL - Linguagem de Definição de Dados
+#### DDL - Linguagem de Definição de Dados
 
 O segundo grupo é a DDL (Data Definition Language - Linguagem de Definição de Dados). Uma DDL permite ao utilizador definir tabelas novas e elementos associados. A maioria dos bancos de dados de SQL comerciais tem extensões proprietárias no DDL.
 
@@ -77,6 +78,32 @@ Outros comandos DDL:
 - ALTER INDEX  
 - DROP INDEX  
 - DROP VIEW  
+
+### 11. Inserindo informações
+
+```
+λ sqlite3.exe aula01.sqlite             SQLite version 3.21.0 2017-10-24 18:55:49
+Enter ".help" for usage hints.
+sqlite> .schema
+CREATE TABLE agenda(nome text, telefone text);
+CREATE TABLE alunos(matricula integer, nome text, telefone text, cidade text);
+CREATE TABLE produtos (codigo integer, nome text, qtd integer);
+sqlite>
+sqlite> insert into agenda(nome, telefone) values ("Jose", "988889900");
+sqlite> insert into agenda(nome, telefone) values ("Beta", "111111111");
+
+sqlite> select * from agenda;
+Jose|988889900
+Beta|111111111
+
+sqlite> .headers on
+
+sqlite> select * from agenda;
+nome|telefone
+Jose|988889900
+Beta|111111111
+sqlite>
+```
 
 [Voltar ao Índice](#indice)
 
