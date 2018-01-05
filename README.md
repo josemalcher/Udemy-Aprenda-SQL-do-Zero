@@ -157,6 +157,12 @@ CREATE TABLE IF NOT EXISTS "estudantes"(matricula integer, nome text, telefone t
 ```
 
 
+[[MÃO NA MASSA] Exercícios - Lista 1](https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista01)
+
+
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
