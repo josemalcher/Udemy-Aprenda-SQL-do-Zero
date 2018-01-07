@@ -170,6 +170,20 @@ CREATE TABLE IF NOT EXISTS "estudantes"(matricula integer, nome text, telefone t
 
 ## <a name="parte4">Selecionando e Extraindo informações</a>
 
+### 22. Inserindo informações
+```sql
+sqlite> insert into funcionarios(nome, endereco, telefone,cidade, cep, rg, salaro) values("jose", "rua ttal tal",  "999999","Belem", 66020000, "44433221","2000");
+sqlite> select * from funcionarios;
+|jose|rua ttal tal|999999|Belem|66020000|44433221|2000
+
+sqlite> .headers on
+
+sqlite> select * from funcionarios;
+cod|nome|endereco|telefone|cidade|cep|rg|salaro
+|jose|rua ttal tal|999999|Belem|66020000|44433221|2000
+sqlite>
+```
+
 [Voltar ao Índice](#indice)
 
 ---
