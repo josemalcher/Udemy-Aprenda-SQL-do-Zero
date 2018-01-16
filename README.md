@@ -254,6 +254,49 @@ codigo|nome|telefone|cpf
 sqlite>
 ```
 
+---
+
+### 26. O que é esse tal de Like?
+
+```sql
+sqlite> select * from funcionarios;
+codigo|nome|telefone|cpf
+1|jose stelio|3241-2233|78911122233
+2|Nome funcionario 2|3222-3123|11122233344
+3|funcionario 3|3333-3123|2223334411
+4|funcionario 4|4444-3123|4443334411
+6|Ana Maria|3111-3123|1113444344
+7|Ana Souza|3111-2222|1223444344
+8|Ana Beatriz|3111-5555|9999444344
+9|Ana Vinagre|3111-1111|9444344
+10|Ana Carolina|3111-7777|7779444344
+
+sqlite> select * from funcionarios where nome like "A%";
+codigo|nome|telefone|cpf
+6|Ana Maria|3111-3123|1113444344
+7|Ana Souza|3111-2222|1223444344
+8|Ana Beatriz|3111-5555|9999444344
+9|Ana Vinagre|3111-1111|9444344
+10|Ana Carolina|3111-7777|7779444344
+
+sqlite> select nome,telefone from funcionarios where nome like "A%";
+nome|telefone
+Ana Maria|3111-3123
+Ana Souza|3111-2222
+Ana Beatriz|3111-5555
+Ana Vinagre|3111-1111
+Ana Carolina|3111-7777
+
+sqlite> select nome,telefone from funcionarios where telefone like "31%";
+nome|telefone
+Ana Maria|3111-3123
+Ana Souza|3111-2222
+Ana Beatriz|3111-5555
+Ana Vinagre|3111-1111
+Ana Carolina|3111-7777
+sqlite>
+```
+
 ## <a name="parte5">Tabelas também se relacionam</a>
 
 [Voltar ao Índice](#indice)
