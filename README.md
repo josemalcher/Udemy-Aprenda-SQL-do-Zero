@@ -188,6 +188,23 @@ sqlite>
 
 ---
 
+### 23. O comando mais badalado do SQL
+
+```sql
+sqlite> select * from funcionarios;
+codigo|nome|telefone|cpf
+1|jose stelio|3241-2233|78911122233
+2|Nome funcionario 2|3222-3123|11122233344
+3|funcionario 3|3333-3123|2223334411
+4|funcionario 4|4444-3123|4443334411
+5|Ana|3111-3123|1113333344
+
+sqlite> select * from funcionarios where nome="Ana";
+codigo|nome|telefone|cpf
+5|Ana|3111-3123|1113333344
+sqlite>
+```
+
 ## <a name="parte5">Tabelas também se relacionam</a>
 
 [Voltar ao Índice](#indice)
