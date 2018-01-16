@@ -205,6 +205,33 @@ codigo|nome|telefone|cpf
 sqlite>
 ```
 
+---
+
+### 24. Mostrando só alguns campos mesmo
+
+```sql
+sqlite> select * from funcionarios where telefone="3111-3123";
+codigo|nome|telefone|cpf
+5|Ana|3111-3123|1113333344
+
+sqlite> select nome from funcionarios where telefone="3111-3123";
+nome
+Ana
+
+sqlite> select nome,cpf from funcionarios where telefone="3111-3123";
+nome|cpf
+Ana|1113333344
+
+sqlite> select nome from funcionarios;
+nome
+jose stelio
+Nome funcionario 2
+funcionario 3
+funcionario 4
+Ana
+sqlite>
+```
+
 ## <a name="parte5">Tabelas também se relacionam</a>
 
 [Voltar ao Índice](#indice)
