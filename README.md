@@ -297,6 +297,12 @@ Ana Carolina|3111-7777
 sqlite>
 ```
 
+---
+
+### 27. Conhecendo o SQLite Studio
+
+https://sqlitestudio.pl/index.rvt
+
 ## <a name="parte5">Tabelas também se relacionam</a>
 
 [Voltar ao Índice](#indice)
