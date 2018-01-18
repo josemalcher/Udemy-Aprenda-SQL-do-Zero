@@ -303,6 +303,12 @@ sqlite>
 
 https://sqlitestudio.pl/index.rvt
 
+---
+
+### 28. [MÃO NA MASSA] Exercícios - Lista 3
+
+[Lista 3 Resolvida](https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista03)
+
 ## <a name="parte5">Tabelas também se relacionam</a>
 
 [Voltar ao Índice](#indice)
