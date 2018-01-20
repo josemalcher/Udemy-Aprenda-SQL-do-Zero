@@ -305,13 +305,69 @@ https://sqlitestudio.pl/index.rvt
 
 ---
 
-### 28. [MÃO NA MASSA] Exercícios - Lista 3
+28. [MÃO NA MASSA] Exercícios - Lista 3
 
 [Lista 3 Resolvida](https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista03)
 
-### 30. [MÃO NA MASSA] Exercícios - Lista 4
+30. [MÃO NA MASSA] Exercícios - Lista 4
 
 [Lista 4 Resolvida](https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista04)
+
+--- 
+
+### 32. Colocando em ordem alfabética
+
+```sql
+sqlite> select nome from funcionarios;
+nome
+jose stelio
+Nome funcionario 2
+funcionario 3
+funcionario 4
+Ana Maria
+Ana Souza
+Ana Beatriz
+Ana Vinagre
+Ana Carolina
+
+sqlite> select nome from funcionarios order by nome;
+nome
+Ana Beatriz
+Ana Carolina
+Ana Maria
+Ana Souza
+Ana Vinagre
+Nome funcionario 2
+funcionario 3
+funcionario 4
+jose stelio
+
+sqlite> select nome from funcionarios order by nome DESC;
+nome
+jose stelio
+funcionario 4
+funcionario 3
+Nome funcionario 2
+Ana Vinagre
+Ana Souza
+Ana Maria
+Ana Carolina
+Ana Beatriz
+
+sqlite> select nome,telefone from funcionarios order by telefone;
+nome|telefone
+Ana Vinagre|3111-1111
+Ana Souza|3111-2222
+Ana Maria|3111-3123
+Ana Beatriz|3111-5555
+Ana Carolina|3111-7777
+Nome funcionario 2|3222-3123
+jose stelio|3241-2233
+funcionario 3|3333-3123
+funcionario 4|4444-3123
+sqlite>```
+
+---
 
 ## <a name="parte5">Tabelas também se relacionam</a>
 
