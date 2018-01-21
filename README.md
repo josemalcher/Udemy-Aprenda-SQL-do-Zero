@@ -424,9 +424,44 @@ sqlite>
 35. [MÃO NA MASSA] Exercícios - Lista 5
 
 https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista05
+
+
 ---
 
+### 37. Atualizando informações na tabela
+
+```sql
+sqlite> select * from funcionarios;
+codigo|nome|telefone|cpf
+1|jose stelio|3241-2233|78911122233
+2|Nome funcionario 2|3222-3123|11122233344
+3|funcionario 3|3333-3123|2223334411
+4|funcionario 4|4444-3123|4443334411
+6|Ana Maria|3111-3123|1113444344
+7|Ana Souza|3111-2222|1223444344
+8|Ana Beatriz|3111-5555|9999444344
+9|Ana Vinagre|3111-1111|9444344
+10|Ana Carolina|3111-7777|7779444344
+
+sqlite> update funcionarios set nome="José Malcher Jr." where codigo=1;
+
+sqlite> select * from funcionarios;
+codigo|nome|telefone|cpf
+1|José Malcher Jr.|3241-2233|78911122233
+2|Nome funcionario 2|3222-3123|11122233344
+3|funcionario 3|3333-3123|2223334411
+4|funcionario 4|4444-3123|4443334411
+6|Ana Maria|3111-3123|1113444344
+7|Ana Souza|3111-2222|1223444344
+8|Ana Beatriz|3111-5555|9999444344
+9|Ana Vinagre|3111-1111|9444344
+10|Ana Carolina|3111-7777|7779444344
+sqlite>
+```
+
 ## <a name="parte5">Tabelas também se relacionam</a>
+
+### 38. Vamos fazer nosso primeiro JOIN
 
 [Voltar ao Índice](#indice)
 
