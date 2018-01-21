@@ -421,8 +421,9 @@ sqlite>
 
 ---
 
+35. [MÃO NA MASSA] Exercícios - Lista 5
 
-
+https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista05
 ---
 
 ## <a name="parte5">Tabelas também se relacionam</a>
