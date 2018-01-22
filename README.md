@@ -491,6 +491,22 @@ sqlite>
 
 ### 39. Mais um JOIN para você entender
 
+```sql
+sqlite> select livro.titulo, editora.nome 
+        from livro, editora 
+        where editora.id = livro.id_editora;
+titulo|nome
+Nome livro qualquer 2|PA Editora 2
+Nome livro qualquer 5|PA Editora 2
+Nome livro qualquer 6|BA Editora 3
+Nome livro qualquer 7|PA Editora 2
+sqlite>
+```
+---
+
+### 40. Que tal ligarmos agora 3 tabelas?
+
+
 
 
 [Voltar ao Índice](#indice)
