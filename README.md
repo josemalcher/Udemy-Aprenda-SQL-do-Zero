@@ -474,7 +474,7 @@ id|titulo|id_autor|id_editora|id_estilo|sinopse|isbn
 5|Nome livro qualquer 5|3|2|1|Sinopse breve.. tal|1533444
 6|Nome livro qualquer 6|4|3|2|Sinopse breve.. tal|1533666
 7|Nome livro qualquer 7|5|2|1|Sinopse breve.. tal bla|1533777
-
+-- usando "apelidos nas tabelas"
 sqlite> select l.titulo, a.nome from livro l, autor a where a.id = l.id_autor;
 titulo|nome
 Nome livro qualquer 1|Nome Autor 1
@@ -506,8 +506,40 @@ sqlite>
 
 ### 40. Que tal ligarmos agora 3 tabelas?
 
+```sql
+sqlite> select livro.titulo, autor.nome, editora.nome from livro, autor, editora where autor.id = livro.id_editora AND editora.id = livro.id_editora;
+titulo|nome|nome
+Nome livro qualquer 2|Autor 2|PA Editora 2
+Nome livro qualquer 5|Autor 2|PA Editora 2
+Nome livro qualquer 6|Jose Autor 3|BA Editora 3
+Nome livro qualquer 7|Autor 2|PA Editora 2
+sqlite>
+```
+
+---
+
+### 41. Além do JOIN vamos restringir um pouco mais?
+
+```sql
+sqlite> select l.titulo, a.nome, e.nome, e.telefone 
+        from livro l, autor a, editora e 
+        where a.id = l.id_autor 
+        and   e.id = l.id_editora 
+        and   e.telefone like "91%";
+titulo|nome|nome|telefone
+Nome livro qualquer 2|Nome Autor 1|PA Editora 2|91 9999999
+Nome livro qualquer 5|Jose Autor 3|PA Editora 2|91 9999999
+Nome livro qualquer 7|Maria Autor 5|PA Editora 2|91 9999999
+sqlite>
+```
+
+---
+
+42. [MÃO NA MASSA] Exercícios - Lista 6
 
 
+
+---
 
 [Voltar ao Índice](#indice)
 
