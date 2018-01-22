@@ -463,6 +463,36 @@ sqlite>
 
 ### 38. Vamos fazer nosso primeiro JOIN
 
+```sql
+sqlite> select * from livro;
+id|titulo|id_autor|id_editora|id_estilo|sinopse|isbn
+1|Nome livro qualquer 1|1|1|1|Sinopse breve..|123123
+2|Livro 02|||||
+2|Nome livro qualquer 2|1|2|2|Sinopse breve..tal tal|144443
+3|Nome livro qualquer 3|1|1|2|Sinopse breve.. tal|133344
+3|Nome livro qualquer 3|2|1|3|Sinopse breve.. tal|1533444
+5|Nome livro qualquer 5|3|2|1|Sinopse breve.. tal|1533444
+6|Nome livro qualquer 6|4|3|2|Sinopse breve.. tal|1533666
+7|Nome livro qualquer 7|5|2|1|Sinopse breve.. tal bla|1533777
+
+sqlite> select l.titulo, a.nome from livro l, autor a where a.id = l.id_autor;
+titulo|nome
+Nome livro qualquer 1|Nome Autor 1
+Nome livro qualquer 2|Nome Autor 1
+Nome livro qualquer 3|Nome Autor 1
+Nome livro qualquer 3|Autor 2
+Nome livro qualquer 5|Jose Autor 3
+Nome livro qualquer 6|Ana Maria Autor 4
+Nome livro qualquer 7|Maria Autor 5
+sqlite>
+```
+
+---
+
+### 39. Mais um JOIN para você entender
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
