@@ -537,6 +537,7 @@ sqlite>
 
 42. [MÃO NA MASSA] Exercícios - Lista 6
 
+https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista06
 
 
 ---
