@@ -594,6 +594,33 @@ Preço Médio
 
 ```
 
+---
+### 46. Encontrando valores maiores e menores
+
+```sql
+sqlite> select * from livro;
+id|titulo|autor_id|editora_id|estilo_id|sinopse|isbn|precovenda
+1|Anjos e Demônios|2|1|1|Livro excelente com uma historia legal|7878787878|87.580035
+2|A Arte da Guerra||4||||30.315
+2|Código da Vinci|1|2|1|Outro livro excelente com uma historia legal|555544448888|20.21
+3|SQL de A a Z||||||
+sqlite> select max(precovenda) as "Maior Valor" from livro;
+Maior Valor
+87.580035
+sqlite> select min(precovenda) as "Menor Valor" from livro;
+Menor Valor
+20.21
+sqlite> select max(id) as "Maior ID" from editora;
+Maior ID
+109
+
+```
+
+---
+
+
+
+
 [Voltar ao Índice](#indice)
 
 ---
