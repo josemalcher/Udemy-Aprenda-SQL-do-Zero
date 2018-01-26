@@ -548,6 +548,26 @@ https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista06
 
 ## <a name="parte6">Aprendendo COUNT, MIN, MAX, AVG</a>
 
+### 44. Vamos contar
+
+```sql
+sqlite> select count(*) from editora;
+101
+
+sqlite> select count(*) from editora where estado="MG";
+44
+
+sqlite> select count(*) as "Total" from editora where estado="MG";
+44
+
+sqlite> .headers on
+
+sqlite> select count(*) as "Total" from editora where estado="MG";
+Total
+44
+sqlite>
+```
+
 [Voltar ao Índice](#indice)
 
 ---
