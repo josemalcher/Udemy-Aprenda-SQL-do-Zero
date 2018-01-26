@@ -666,6 +666,33 @@ https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista07
 
 ### 50. Criando uma view
 
+```sql
+CREATE VIEW GO AS
+select a.nome, e.nome, es.nome, l.titulo, e.estado
+from livro l, autor a, editora e, estilo es
+where a.id = l.autor_id
+and e.id = l.editora_id
+and es.id = l.estilo_id
+and e.estado = "GO";
+
+SELECT * from GO;
+
+CREATE VIEW Livro_e_Editora AS
+SELECT l.titulo, e.nome
+  FROM editora e, livro l
+  WHERE e.id = l.editora_id;
+
+SELECT * FROM Livro_e_Editora;
+SELECT * FROM Livro_e_Editora WHERE nome="ABC";
+```
+
+---
+
+
+
+
+
+
 
 [Voltar ao Índice](#indice)
 
