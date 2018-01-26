@@ -568,6 +568,32 @@ Total
 sqlite>
 ```
 
+---
+
+### 45. Tirando a média
+
+```sql
+sqlite> select * from livro;
+id|titulo|autor_id|editora_id|estilo_id|sinopse|isbn|precovenda
+1|Anjos e Demônios|2|1|1|Livro excelente com uma historia legal|7878787878|87.580035
+2|A Arte da Guerra||4||||30.315
+2|Código da Vinci|1|2|1|Outro livro excelente com uma historia legal|555544448888|20.21
+3|SQL de A a Z||||||
+
+sqlite> select avg(precovenda) from livro;
+avg(precovenda)
+46.0350116666667
+
+sqlite> select avg(precovenda) as "Preço Médio" from livro;
+Preço Médio
+46.0350116666667
+
+sqlite> select avg(precovenda) "Preço Médio" from livro;
+Preço Médio
+46.0350116666667
+
+```
+
 [Voltar ao Índice](#indice)
 
 ---
