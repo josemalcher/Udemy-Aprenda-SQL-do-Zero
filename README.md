@@ -618,6 +618,36 @@ Maior ID
 
 ---
 
+### 47. A cláusula group by e having
+
+```sql
+sqlite> select count(*) "Total" from editora;
+Total
+101
+sqlite> select estado, count(*) "Total" from editora where estado="MG";
+estado|Total
+MG|44
+sqlite> select estado, count(*) "Total" from editora group by estado;
+estado|Total
+|2
+GO|20
+MG|44
+N.|1
+SP|34
+sqlite> select estado, count(*) "Total" from editora group by estado having count(*) < 30;
+estado|Total
+|2
+GO|20
+N.|1
+sqlite> select estado, count(*) "Total" from editora group by estado having count(*) >= 30;
+estado|Total
+MG|44
+SP|34
+sqlite>
+
+```
+
+---
 
 
 
