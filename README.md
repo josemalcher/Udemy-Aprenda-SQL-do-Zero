@@ -733,6 +733,24 @@ GROUP BY estado;
 
 ```
 
+---
+
+### 54. Excluindo um índex
+
+```sql
+        drop INDEX idx_fakenames2;
+```
+
+---
+
+### 55. A cláusula DISTINCT
+
+
+
+
+
+
+
 
 [Voltar ao Índice](#indice)
 
