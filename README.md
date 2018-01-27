@@ -782,6 +782,25 @@ sqlite> select distinct cidade from fakenames;
 
 ### 56. Usando o LIMIT
 
+```sql
+sqlite> select distinct cidade from fakenames limit 10;
+Santa Maria
+Jacareí
+Rio de Janeiro
+Várzea Grande
+São Paulo
+Brasília
+Porto Alegre
+Maringá
+Canoas
+Cabo Frio
+sqlite>
+
+select * from livro
+order by precovenda DESC
+limit 2;
+
+```
 
 
 
