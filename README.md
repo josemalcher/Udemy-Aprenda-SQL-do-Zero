@@ -709,10 +709,29 @@ sqlite>
 
 ---
 
+### 52. O comando create INDEX
 
+```sql
+--- SEM INDEX
+select count(*) 
+from fakenames 
+where estado = "MG";
+--- 1 row retrieved starting from 1 in 252ms (execution: 242ms, fetching: 10ms)
 
+SELECT estado, count(*)
+from fakenames
+GROUP BY estado;
+--- 27 rows retrieved starting from 1 in 741ms (execution: 554ms, fetching: 187ms)
 
+--- COM INDEX CRIADO
+CREATE INDEX idx_fakenames ON fakenames(estado);
 
+SELECT estado, count(*)
+from fakenames
+GROUP BY estado;
+--- 27 rows retrieved starting from 1 in 200ms (execution: 6ms, fetching: 194ms)
+
+```
 
 
 [Voltar ao Índice](#indice)
