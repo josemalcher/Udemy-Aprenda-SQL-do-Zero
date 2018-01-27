@@ -688,6 +688,27 @@ SELECT * FROM Livro_e_Editora WHERE nome="ABC";
 
 ---
 
+### 51. Excluindo uma view
+
+```sql
+sqlite> .table
+GO               auditoria        dados_fake       estilo
+Livro_e_Editora  autor            editora          livro
+
+sqlite> select * from GO;
+nome|nome:1|nome:2|titulo|estado
+Dan Brown|ABC|Policial|Código da Vinci|GO
+
+sqlite> drop view GO;
+
+sqlite> .table
+Livro_e_Editora  autor            editora          livro
+auditoria        dados_fake       estilo
+sqlite>
+```
+
+---
+
 
 
 
