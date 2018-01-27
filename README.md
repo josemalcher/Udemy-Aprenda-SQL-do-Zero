@@ -784,17 +784,7 @@ sqlite> select distinct cidade from fakenames;
 
 ```sql
 sqlite> select distinct cidade from fakenames limit 10;
-Santa Maria
-Jacareí
-Rio de Janeiro
-Várzea Grande
-São Paulo
-Brasília
-Porto Alegre
-Maringá
-Canoas
-Cabo Frio
-sqlite>
+
 
 select * from livro
 order by precovenda DESC
@@ -802,7 +792,40 @@ limit 2;
 
 ```
 
+---
 
+### 57. Como posso criar subselects? O que eles comem?
+
+```sql
+-- select
+select * from livro;
+select * from autor;
+
+--
+select l.titulo
+from livro l, autor a
+where a.id = l.id_autor
+and a.nome = "Nome Autor 1";
+
+--Utilizando SubSelect
+SELECT l.titulo
+FROM livro l
+WHERE l.id_autor = (
+  SELECT id
+  FROM autor
+  WHERE nome="Nome Autor 1"
+);
+
+--Exclusão
+DELETE from livro
+WHERE id = (
+  SELECT id
+  FROM autor
+  WHERE nome="Graciliano Ramos"
+);
+```
+
+### 58. [MÃO NA MASSA] Exercícios - Lista 8
 
 
 
