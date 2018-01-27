@@ -745,7 +745,42 @@ GROUP BY estado;
 
 ### 55. A cláusula DISTINCT
 
+```sql
+sqlite> select distinct estado from fakenames;
+AC
+AL
+AM
+AP
+BA
+CE
+DF
+ES
+GO
+MA
+MG
+MS
+MT
+PA
+PB
+PE
+PI
+PR
+RJ
+RN
+RO
+RR
+RS
+SC
+SE
+SP
+TO
 
+sqlite> select distinct cidade from fakenames;
+```
+
+---
+
+### 56. Usando o LIMIT
 
 
 
