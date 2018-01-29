@@ -839,6 +839,57 @@ https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista08
 
 ### 60. 14 funções que você um dia pode precisar!
 
+```sql
+-- ifnull
+SELECT titulo, id_estilo
+from livro;
+SELECT titulo, ifnull(id_estilo, "FALTA Codigo do Estilo") FROM livro;
+
+-- length
+SELECT length("Jose");
+SELECT length(titulo) from livro WHERE id=1;
+SELECT titulo, length(titulo) as "Tamanho do Titulo" FROM livro WHERE id=1;
+
+-- lower
+SELECT lower(titulo)from livro;
+
+--up
+SELECT upper(titulo) FROM livro;
+
+-- substr
+SELECT substr("Titulo qualquer", 3, 6);
+
+-- radon()
+SELECT random();
+SELECT titulo, substr(random(),3,3) AS "codigo_inventado" from livro;
+
+-- replace
+SELECT replace("Curso de SQL", " ", "---") as "replace";
+
+-- round(x) arrendodamento (var, casas)
+SELECT titulo, round(precovenda, 2) from livro;
+
+-- trim() remove espaços do inicio e do fim
+SELECT trim("      CURSO    _ de      TAL");
+
+-- rtrim() tira do final
+SELECT rtrim("      CURSO    _ de      TAL");
+
+-- ltrim() - tira do inicio
+SELECT ltrim("      CURSO    _ de      TAL");
+
+-- typeof
+SELECT typeof(1);
+SELECT typeof(" ");
+
+-- date('now')
+SELECT DATE('now');
+
+-- mostra versão do sqlite
+SELECT sqlite_version();
+
+```
+
 
 [Voltar ao Índice](#indice)
 
