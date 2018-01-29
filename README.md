@@ -890,6 +890,27 @@ SELECT sqlite_version();
 
 ```
 
+---
+
+### 62. Um exemplo de uso de transações
+
+```sql
+BEGIN TRANSACTION;
+INSERT INTO autor(id, nome, cidade, estado, telefone)
+VALUES (10,"JOse Malcher", "Belém", "PA","91 99999888");
+-- ROLLBACK;
+COMMIT ;
+
+```
+
+---
+
+
+### 63. O que é um Outer Join?
+
+
+
+
 
 [Voltar ao Índice](#indice)
 
