@@ -908,7 +908,73 @@ COMMIT ;
 
 ### 63. O que é um Outer Join?
 
+```sql
 
+-- vendo as tabelas
+SELECT * FROM livro;
+SELECT * from estilo;
+
+-- TradicionalINNER JOIN
+SELECT l.titulo, e.nome
+FROM livro l, estilo e
+WHERE e.id = l.id_estilo;
+
+sqlite> SELECT l.titulo, e.nome FROM livro l, estilo e WHERE e.id = l.id_estilo;
+titulo|nome
+Nome livro qualquer 6|Estilo Policial
+A volta tal tal |Estilo Policial
+Livro 02|Estilo Terror
+Livro 04|Estilo Romance
+sqlite>
+
+-- Outra forma de INNER JOIN
+SELECT titulo, nome
+from estilo INNER JOIN livro
+ON estilo.id = livro.id_estilo;
+
+sqlite> SELECT titulo, nome from estilo INNER JOIN livro ON estilo.id = livro.id_estilo;
+titulo|nome
+Livro 02|Estilo Terror
+Livro 04|Estilo Romance
+A volta tal tal |Estilo Policial
+Nome livro qualquer 6|Estilo Policial
+
+-- INNER JOIN = CONDIÇÃO SATISFEITA de ambos os lados
+
+----------------------------------------
+
+-- OUTER JOIN
+SELECT titulo, nome
+FROM estilo LEFT OUTER JOIN livro
+ON estilo.id = livro.id_estilo;
+
+sqlite> SELECT titulo, nome FROM estilo LEFT OUTER JOIN livro ON estilo.id = livro.id_estilo;
+titulo|nome
+Livro 02|Estilo Terror
+Livro 04|Estilo Romance
+A volta tal tal |Estilo Policial
+Nome livro qualquer 6|Estilo Policial
+|Estilo Concurso
+|Fantasia
+|Desenho
+
+
+SELECT titulo, nome
+FROM livro LEFT OUTER JOIN estilo
+ON estilo.id = livro.id_estilo;
+
+sqlite> SELECT titulo, nome FROM livro LEFT OUTER JOIN estilo ON estilo.id = livro.id_estilo;
+titulo|nome
+Nome livro qualquer 1|
+Nome livro qualquer 6|Estilo Policial
+A volta tal tal |Estilo Policial
+Livro 02|Estilo Terror
+Livro 04|Estilo Romance
+
+-- LEFT OUTER JOIN = mostra mesmo que seja NULL
+
+
+```
 
 
 
