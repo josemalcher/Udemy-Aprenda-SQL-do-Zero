@@ -36,93 +36,126 @@ Observações:
 
 --- 
 
-1) Faça um select somente de 10 editoras de GO  
+1) Faça um select somente de 10 ou 2 editoras de GO/SP  
 
 ```sql
-
+SELECT editora.nome, estado
+from editora
+where estado="SP" LIMIT 2;
 ```
 
 2) Exiba o nome das editoras em ordem inversa e retorne as 3 primeiras  
 
 ```sql
-
+SELECT nome
+from editora
+ORDER BY nome DESC
+LIMIT 4;
 ```
 
 3) Exiba todos os estados que temos editoras cadastradas  
 
 ```sql
-
+SELECT DISTINCT estado
+from editora;
 ```
 
 4) Crie uma view para o select que você fez no exercício 1 com o nome de GOIAS.  
 
 ```sql
 
+CREATE VIEW GOIAIS2 AS
+SELECT DISTINCT cidade, estado
+  FROM fakenames
+  WHERE estado="GO";
+
+
+SELECT * from GOIAIS2;
 ```
 
 5) Crie uma view para o select que você fez no exercício 3 com o nome de ESTADOS.  
 
 ```sql
 
+CREATE VIEW ESTADOS AS
+SELECT DISTINCT estado
+  FROM fakenames;
+
+SELECT * FROM ESTADOS;
 ```
 
-6) Crie um índice para o estado na tabela Editora  
+6) Crie um índice para o estado na tabela Editora(ou em outra)  
 
 ```sql
-
+CREATE INDEX idx_estado ON fakenames(estado); 
 ```
 
 7) Crie um índice para o nome do autor.  
 
 ```sql
-
+Create INDEX idx_cidade on fakenames(cidade);
 ```
 
 8) Utilize subselect e exclua todos os livros da editora XPTO  
 
 ```sql
-
+DELETE from livro
+where id=(
+    SELECT id
+    FROM editora
+    WHERE id=3
+);
 ```
 
 9) Utilize subselect e exclua todos os livros do autor José Buscapé  
 
 ```sql
-
+DELETE from livro
+WHERE id=(
+    SELECT id 
+    from autor
+    WHERE nome="José"
+);
 ```
 
 10) Exclua a view GOIAS  
 
 ```sql
+DROP VIEW ESTADOS;
+DROP VIEW GOIAS;
 
 ```
 
 11) Exclua o índice da tabela Editora  
 
 ```sql
-
+drop INDEX idx_editora;
 ```
 
 12) Exclua a view Estados  
 
 ```sql
-
+drop INDEX idx_estado;
 ```
 
 13) Exiba em ordem alfabética as editoras e mostre as 7 primeiras (somente o nome).  
 
 ```sql
-
+SELECT DISTINCT cidade, estado
+FROM fakenames
+  ORDER BY cidade
+LIMIT 10;
 ```
 
 14) Exclua o índice da tabela autor  
 
 ```sql
-
+drop INDEX idx_autor;
 ```
 
 15) Crie um índice para o nome do livro  
 
 
 ```sql
-
+CREATE INDEX idx_cidades ON fakenames(cidade);
 ```

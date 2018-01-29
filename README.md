@@ -827,6 +827,8 @@ WHERE id = (
 
 ### 58. [MÃO NA MASSA] Exercícios - Lista 8
 
+https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista08
+
 
 
 [Voltar ao Índice](#indice)
@@ -834,6 +836,9 @@ WHERE id = (
 ---
 
 ## <a name="parte8">Isso tá muio fácil! Quero recursos avançados!</a>
+
+### 60. 14 funções que você um dia pode precisar!
+
 
 [Voltar ao Índice](#indice)
 
