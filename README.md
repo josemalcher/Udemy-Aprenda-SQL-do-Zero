@@ -1020,6 +1020,10 @@ select * from auditoria;
 
 ---
 
+### 66. [MÃO NA MASSA] Exercícios - Lista 9
+
+https://github.com/josemalcher/Udemy-Aprenda-SQL-do-Zero/tree/master/Lista09
+
 
 
 [Voltar ao Índice](#indice)

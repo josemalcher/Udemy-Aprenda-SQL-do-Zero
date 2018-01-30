@@ -45,45 +45,88 @@ Atenção: Trata-se de UM ÚNICO COMANDO SELECT para retornar todos os campos ac
 
 1) Crie uma tabela de auditoria contendo os campos editora_id, data e observação  
 
-´´´sql
-
-´´´
+```sql
+  CREATE TABLE auditoria_exer (editora_id, data date, obs tex);
+```
 
 2) Crie uma trigger para que toda vez que seja inserido um novo registro na tabela editora seja gravado um registro na tabela auditoria com a informação “Registro inserido”  
 
-´´´sql
+```sql
 
-´´´
+CREATE TRIGGER auditoria_exer AFTER INSERT ON editora
+  BEGIN
+  INSERT INTO auditoria_exer(editora_id, data, obs)
+      VALUES (new.id, datetime('now'), "Registro inserido");
+END;
+
+--teste
+INSERT INTO editora(id, nome, cidade, estado, telefone, email)
+    VALUES (10,"NOVATEC Editora", "São Paulo", "SP", "011 99999", "contato@gmail.co");
+```
 
 3) Crie uma trigger para que toda vez que seja excluído um registro na tabela editora seja gravado um registro na tabela auditoria com a informação “Registro excluído”  
 
-´´´sql
+```sql
+INSERT INTO editora(id, nome, cidade, estado, telefone, email)
+    VALUES (10,"NOVATEC Editora", "São Paulo", "SP", "011 99999", "contato@gmail.co");
 
-´´´
+CREATE TRIGGER auditoria_exer_del AFTER DELETE ON editora
+  BEGIN
+  INSERT INTO auditoria_exer(editora_id, data, obs)
+      VALUES (old.id, datetime('now'), "Registro Deletado");
+END;
+
+--teste
+DELETE from editora WHERE id = 2;
+DELETE from editora WHERE id = 3;
+DELETE from editora WHERE id = 4;
+
+
+```
 
 4) Faça um join na tabela de livros com autores mostrando o título do livro e do autor.  
 
-´´´sql
+```sql
 
-´´´
+SELECT l.titulo, a.nome
+FROM livro l, autor a
+WHERE a.id = l.autor_id;
+
+SELECT titulo, nome
+from autor INNER JOIN livro
+ON autor.id = livro.autor_id;
+```
 
 5) Faça um join na tabela de livros com autores mostrando o título do livro e do autor usando agora um LEFT OUTER JOIN para mostrar inclusive os livros que não tenham autor definido.  
 
-´´´sql
+```sql
 
-´´´
+SELECT titulo,nome
+FROM livro LEFT OUTER JOIN autor
+ON autor.id = livro.autor_id;
+
+```
 
 6) Escreva um bloco de transação que exclua o livro de código 1 e insira um novo livro de código 50. Mas dê um rollback na transação.  
 
-´´´sql
+```sql
 
-´´´
+BEGIN TRANSACTION ;
+DELETE from livro WHERE id=1;
+INSERT INTO livro(id,titulo) VALUES (11, "So o nome");
+ROLLBACK;
+
+
+```
 
 7) Escreva um bloco de transação que exclua o livro de código 3 e insira um novo livro de código 3. Feche a transação com Commit.  
 
-´´´sql
-
-´´´
+```sql
+BEGIN TRANSACTION ;
+DELETE from livro WHERE id=3;
+INSERT INTO livro(id,titulo) VALUES (11, "So o nome");
+COMMIT ;
+```
 
 8) Fazer um select no Banco e retornar os seguintes campos:  
 · Nome do autor em letras maiúsculas  
@@ -93,49 +136,64 @@ Atenção: Trata-se de UM ÚNICO COMANDO SELECT para retornar todos os campos ac
 · Valor do Livro com desconto de 7%  
 Atenção: Trata-se de UM ÚNICO COMANDO SELECT para retornar todos os campos acima.  
 
-´´´sql
-
-´´´
+```sql
+SELECT
+  upper(a.nome),
+  lower(e.nome),
+  substr(l.titulo,1,10),
+  l.precovenda,
+  l.precovenda * 0.93
+FROM livro l, autor a, estilo e
+WHERE a.id = l.autor_id
+AND e.id = l.estilo_id;
+```
 
 9) Faça um select trazendo o nome do livro, código do estilo, código do autor e código da editora. Caso algum campo desse esteja NULL mostre a mensagem SEM CADASTRO.  
 
-´´´sql
-
-´´´
+```sql
+SELECT titulo,
+  ifnull(estilo_id, "SEM CADASTRO"),
+  ifnull(autor_id, "SEM CADASTRO"),
+  ifnull(editora_id, "SEM CADASTRO")
+FROM livro;
+```
 
 10) Mostre o nome das 6 primeiras editoras em ordem alfabética e em letras maiúsculas.  
 
-´´´sql
-
-´´´
+```sql
+SELECT upper(nome)
+FROM editora
+ORDER BY nome
+LIMIT 6;
+```
 
 11) Faça um select mostrando o nome do livro e o tamanho em caracteres do nome  
 
-´´´sql
-
-´´´
+```sql
+SELECT titulo, length(titulo) FROM livro;
+```
 
 12) Exiba a data atual  
 
-´´´sql
-
-´´´
+```sql
+SELECT date('now');
+```
 
 13) Exiba a versão do SQLite  
 
-´´´sql
-
-´´´
+```sql
+SELECT sqlite_version();
+```
 
 14) Exiba o nome das editoras substituindo a letra a por X  
 
-´´´sql
-
-´´´
+```sql
+SELECT replace(nome, "a","x") FROM editora;
+```
 
 15) Grite bem alto “TERMINEI TODOS OS EXERCÍCIOS!!!!!!!” ;-)  
 
 
-´´´sql
-
-´´´
+```sql
+          --    \o/
+```
